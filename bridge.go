@@ -85,6 +85,10 @@ func (b *BridgeStruct) Send(ctx context.Context, content string) <-chan BridgeRe
 	return ch
 }
 
+func (b *BridgeStruct) Clear(ctx context.Context) {
+	b.schema.Messages = []RoleSchema{}
+}
+
 func (b *BridgeStruct) StartConsoleDialog(ctx context.Context) {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
