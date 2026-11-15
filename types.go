@@ -57,7 +57,7 @@ type BridgeStruct struct {
 	sem        chan struct{}
 }
 
-func NewAiBridge(url, key, modelName string, countPools int, timeDuration time.Duration) *BridgeStruct {
+func NewAiBridge(url, key, modelName string, countPools int, timeDuration time.Duration) BridgeStruct {
 	schema := SchemaAPI{
 		Messages:            []RoleSchema{},
 		Model:               modelName,
@@ -72,7 +72,7 @@ func NewAiBridge(url, key, modelName string, countPools int, timeDuration time.D
 		timeDuration = 3 * time.Second
 	}
 
-	return &BridgeStruct{
+	return BridgeStruct{
 		schema:     schema,
 		url:        url,
 		key:        key,
